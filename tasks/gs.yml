@@ -1,0 +1,16 @@
+---
+- name: "download: Ensure python-libcloud"
+  yum:
+    name: "python-libcloud"
+    state: "latest"
+
+- name: "download: Google Storage"
+  gc_storage:
+    gs_access_key: "{{ download_user | default(omit) }}"
+    gs_secret_key: "{{ download_pass | default(omit) }}"
+    region: "{{ download_region | default(omit) }}"
+    bucket: "{{ download_bucket }}"
+    object: "{{ download_from }}"
+    dest: "{{ download_to }}"
+    force: "{{ download_overwrite }}"
+    mode: "get"

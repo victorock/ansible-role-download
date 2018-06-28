@@ -1,0 +1,14 @@
+---
+- name: "download: Ensure curl"
+  yum:
+    name: "curl"
+    state: "latest"
+
+- name: "download: Curl"
+  get_url:
+    url: "{{ download_from }}"
+    url_username: "{{ download_user | default(omit) }}"
+    url_password: "{{ download_pass | default(omit) }}"
+    dest: "{{ download_to }}"
+    force: "{{ download_overwrite }}"
+    validate_certs: "{{ download_secure }}"
