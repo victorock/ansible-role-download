@@ -1,0 +1,20 @@
+---
+- name: "download.asb: Ensure azure is installed (pip)"
+  pip:
+    name: "azure"
+    state: "latest"
+
+- name: "download.asb: Azure Storage Blob"
+  azure_rm_storageblob:
+    resource_group: "{{ download_asb_resource_group }}"
+    storage_account_name: "{{ download_user | default(omit) }}"
+    secret: "{{ download_pass | default(omit) }}"
+    container: "{{ download_bucket }}"
+    blob: "{{ download_from }}"
+    dest: "{{ download_to }}"
+    force: "{{ download_overwrite }}"
+    tenant: "{{ download_asb_tenant | default(omit) }}"
+    subscription_id: "{{ download_asb_subscription_id | default(omit) }}"
+    password: "{{ download_asb_ad_pass | default(omit) }}"
+    ad_user: "{{ download_asb_ad_user | default(omit) }}"
+    cert_validation_mode: "{{ download_secure }}"
