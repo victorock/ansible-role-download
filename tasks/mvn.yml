@@ -11,7 +11,7 @@
     password:       "{{ download_pass | default(omit) }}"
     artifact_id:    "{{ download_mvn_artifact_id }}"
     extension:      "{{ download_mvn_extension }}"
-    repository_url: "{{ download_from }}"
+    repository_url: "{{ download_from | default(omit) }}"
     version:        "{{ download_mvn_version }}"
     dest:           "{{ download_to }}"
     validate_certs: "{{ download_secure }}"
