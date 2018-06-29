@@ -3,9 +3,3 @@ download: "curl"
 download_secure: True
 download_overwrite: False
 download_to: "/tmp/"
-
-### Maven defauls
-download_mvn_extension: "war"
-download_mvn_group_id: "com.acme"
-download_mvn_artifact_id: "myapp"
-download_mvn_version: "1.0"
