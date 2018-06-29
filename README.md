@@ -14,20 +14,20 @@ Variables are defined in `defaults/main.yml` as well as `vars/`. Based on the op
 | `download_user` | `None` | Username if file access requires authentication. |
 | `download_pass` | `None` | Password if file access requires authentication. |
 | `download_from` | `None` | The location (`s3`, `gs`, `asb`) or url (`curl`, `mvn`) to download from. |
-| `download_from_bucket` | `None` | The bucket to download from. NOTE: Applies only to `gs` and `s3`. |
-| `download_from_region` | `None` | The region to download from.  NOTE: Applies only to `gs` and `s3`. |
-| `download_to` | `/tmp` | The location in the local filesystem to save to. |
-| `download_secure` | `True` | Bool to define if SSL certificates in should be valid. |
+| `download_from_bucket` | `None` | The bucket to download from (`gs`, `s3`, `asb`) |
+| `download_from_region` | `None` | The region to download from (`gs`, `s3`, `asb`) |
+| `download_to` | `/tmp` | The location to save in the local filesystem. |
+| `download_secure` | `True` | Bool to define if SSL certificates should be valid. |
 | `download_overwrite` | `False` | Bool to define if existing files should be overwritten or not. |
-| `download_mvn_extension` | `war` | Maven Artifact Extension. |
-| `download_mvn_group_id` | `com.acme` | Maven Artifact Group ID. |
-| `download_mvn_artifact_id` | `myapp` | Maven Artifact ID. |
-| `download_mvn_version` | `1.0` | Maven Artifact Version. |
-| `download_asb_resource_group` | `None` | Azure Storage Blob: Resource Group Name
-| `download_asb_tenant` | `None` | Azure Storage Blob: Tenant
-| `download_asb_subscription_id` | `None` | Azure Storage Blob: Subscription ID
-| `download_asb_ad_user` | `None` | Azure Storage Blob: Active Directory Username
-| `download_asb_ad_pass` | `None` | Azure Storage Blob: Active Directory Password
+| `download_mvn_extension` | `None` | Maven Artifact Extension. |
+| `download_mvn_group_id` | `None` | Maven Artifact Group ID. |
+| `download_mvn_artifact_id` | `None` | Maven Artifact ID. |
+| `download_mvn_version` | `None` | Maven Artifact Version. |
+| `download_asb_resource_group` | `None` | Azure Storage Blob: Resource Group Name. |
+| `download_asb_tenant` | `None` | Azure Storage Blob: Tenant. |
+| `download_asb_subscription_id` | `None` | Azure Storage Blob: Subscription ID. |
+| `download_asb_ad_user` | `None` | Azure Storage Blob: Active Directory Username. |
+| `download_asb_ad_pass` | `None` | Azure Storage Blob: Active Directory Password. |
 
 
 Examples
