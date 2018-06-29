@@ -1,10 +1,10 @@
 ---
-- name: "download: Ensure python-boto3"
+- name: "download.s3: Ensure python-boto3"
   yum:
     name: "python-boto3"
     state: "latest"
 
-- name: "download: Amazon S3"
+- name: "download.s3: Amazon S3"
   aws_s3:
     aws_access_key: "{{ download_user | default(omit) }}"
     aws_secret_key: "{{ download_pass | default(omit) }}"
@@ -13,4 +13,5 @@
     object: "{{ download_from }}"
     dest: "{{ download_to }}"
     force: "{{ download_overwrite }}"
+    validate_certs: "{{ download_secure }}"
     mode: "get"

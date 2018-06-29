@@ -1,10 +1,10 @@
 ---
-- name: "download: Ensure python-libcloud"
+- name: "download.gs: Ensure python-libcloud"
   yum:
     name: "python-libcloud"
     state: "latest"
 
-- name: "download: Google Storage"
+- name: "download.gs: Google Storage"
   gc_storage:
     gs_access_key: "{{ download_user | default(omit) }}"
     gs_secret_key: "{{ download_pass | default(omit) }}"
