@@ -10,6 +10,7 @@ Variables are defined in `defaults/main.yml` as well as `vars/`. Based on the op
 
 | Name              | Default Value       | Description          |
 |-------------------|---------------------|----------------------|
+| `autorun` | `False`  | Boolean to define if the role "autorun". Useful when you want to have dependencies solved by galaxy (`meta/main.yml`) but don't want it to run automatically.  |
 | `download` | `curl`  | Options are: `mvn` (Maven Repository), `gs` (Google Storage), `s3` (Amazon S3), `asb` (Azure StorageBlob) and `curl` (Standard URL). |
 | `download_user` | `None` | Username if file access requires authentication. |
 | `download_pass` | `None` | Password if file access requires authentication. |
