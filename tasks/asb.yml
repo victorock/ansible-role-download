@@ -9,7 +9,7 @@
     resource_group: "{{ download_asb_resource_group }}"
     storage_account_name: "{{ download_user | default(omit) }}"
     secret: "{{ download_pass | default(omit) }}"
-    container: "{{ download_bucket }}"
+    container: "{{ download_from_bucket }}"
     blob: "{{ download_from }}"
     dest: "{{ download_to }}"
     force: "{{ download_overwrite }}"
