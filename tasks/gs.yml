@@ -1,5 +1,7 @@
 ---
 - name: "download.gs: Ensure python-libcloud"
+  become: yes
+  become_user: root
   yum:
     name: "python-libcloud"
     state: "latest"

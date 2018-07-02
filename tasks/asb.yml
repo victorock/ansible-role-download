@@ -1,5 +1,7 @@
 ---
 - name: "download.asb: Ensure azure is installed (pip)"
+  become: yes
+  become_user: root
   pip:
     name: "azure"
     state: "latest"

@@ -1,5 +1,7 @@
 ---
 - name: "download.curl: Ensure curl"
+  become: yes
+  become_user: root
   yum:
     name: "curl"
     state: "latest"

@@ -1,5 +1,7 @@
 ---
 - name: "download.mvn: Ensure python-lxml"
+  become: yes
+  become_user: root
   yum:
     name: "python-lxml"
     state: "latest"
