@@ -1,0 +1,5 @@
+---
+download: "curl"
+download_secure: True
+download_overwrite: False
+download_to: "/tmp/"

@@ -1,0 +1,19 @@
+---
+dependencies:
+  - role: geerlingguy.repo-epel
+
+galaxy_info:
+  role_name: download
+  author: Victor da Costa (@victorock)
+  description: Ansible role to download files from Google Storage, Amazon S3, Maven Artifact and URL.
+  company: victorock
+  license: GPLv3
+  min_ansible_version: 2.6
+  platforms:
+    - name: EL
+      versions:
+        - 7
+  galaxy_tags:
+    - cloud
+    - file
+    - download

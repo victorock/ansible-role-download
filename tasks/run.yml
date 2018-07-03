@@ -1,0 +1,12 @@
+---
+- import_tasks: gs.yml
+  when: "download == 'gs'"
+
+- import_tasks: s3.yml
+  when: "download == 's3'"
+
+- import_tasks: curl.yml
+  when: "download == 'curl'"
+
+- import_tasks: mvn.yml
+  when: "download == 'mvn'"

@@ -1,0 +1,26 @@
+services: docker
+
+env:
+  - distro: centos7
+    init: /usr/lib/systemd/systemd
+    run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+
+before_install:
+  # Pull container.
+  - 'docker pull samdoran/${distro}-ansible:latest'
+
+script:
+
+  - container_id=$(date +%s)
+
+  # Run container in detached state.
+  - docker run --detach --volume="$PWD":/etc/ansible/roles/test:ro --name $container_id $run_opts samdoran/${distro}-ansible:latest $init
+
+  # Ansible syntax check.
+  - 'docker exec --tty $container_id env TERM=xterm ansible-playbook -c local -b -i /etc/ansible/roles/test/tests/inventory /etc/ansible/roles/test/tests/test.yml --syntax-check'
+
+  # Test role.
+  - 'docker exec --tty $container_id env TERM=xterm ansible-playbook -c local -b -i /etc/ansible/roles/test/tests/inventory /etc/ansible/roles/test/tests/test.yml'
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

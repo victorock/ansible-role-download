@@ -1,0 +1,19 @@
+---
+- name: "download.mvn: Ensure dependencies"
+  become: yes
+  become_user: root
+  yum:
+    name: "python-lxml"
+    state: "latest"
+
+- name: "download.mvn: Maven Artifact"
+  maven_artifact:
+    group_id:       "{{ download_mvn_group_id }}"
+    username:       "{{ download_user | default(omit) }}"
+    password:       "{{ download_pass | default(omit) }}"
+    artifact_id:    "{{ download_mvn_artifact_id }}"
+    extension:      "{{ download_mvn_extension }}"
+    repository_url: "{{ download_from | default(omit) }}"
+    version:        "{{ download_mvn_version }}"
+    dest:           "{{ download_to }}"
+    validate_certs: "{{ download_secure }}"

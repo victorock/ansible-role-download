@@ -1,0 +1,34 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    autorun: true
+
+  roles:
+    - role: test
+      download: "gs"
+      download_user: "{{ lookup('ENV', 'GS_ACCESS_KEY_ID') }}"
+      download_pass: "{{ lookup('ENV', 'GS_SECRET_ACCESS_KEY') }}"
+      download_file: "COPYING"
+      download_from: "/{{ download_file }}"
+      download_from_bucket: "ansible-test"
+      download_from_region: "us-west1"
+      download_to: "/tmp/{{ download_file }}"
+
+    - role: test
+      download: "curl"
+      download_file: "COPYING"
+      download_from: "https://storage.googleapis.com/ansible-test/COPYING"
+      download_to: "/tmp/{{ download_file }}"
+
+    - role: test
+      download: "mvn"
+      download_from: "http://repo1.maven.org/maven2"
+      download_mvn_extension: "jar"
+      download_mvn_group_id: "log4j"
+      download_mvn_artifact_id: "log4j"
+      download_mvn_version: "1.2.9"
+
+## TODO: TEST for S3 and Azure
