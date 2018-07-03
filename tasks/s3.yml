@@ -1,5 +1,5 @@
 ---
-- name: "download.s3: Ensure python-boto3"
+- name: "download.s3: Ensure dependencies"
   become: yes
   become_user: root
   yum:

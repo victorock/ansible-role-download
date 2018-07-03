@@ -1,5 +1,5 @@
 ---
-- name: "download.mvn: Ensure python-lxml"
+- name: "download.mvn: Ensure dependencies"
   become: yes
   become_user: root
   yum:
