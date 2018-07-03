@@ -9,6 +9,8 @@
   roles:
     - role: test
       download: "gs"
+      download_user: "{{ lookup('ENV', 'GS_ACCESS_KEY_ID') }}"
+      download_pass: "{{ lookup('ENV', 'GS_SECRET_ACCESS_KEY') }}"
       download_file: "COPYING"
       download_from: "/{{ download_file }}"
       download_from_bucket: "ansible-test"
