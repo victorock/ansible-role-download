@@ -187,6 +187,12 @@ Follow below different examples and ways to use this role.
 
 ```
 
+Dependencies
+------------
+
+- geerlingguy.repo-epel
+
+
 License
 ------------
 
