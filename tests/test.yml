@@ -3,12 +3,30 @@
   connection: local
   gather_facts: no
 
+  vars:
+    autorun: true
+
   roles:
     - role: test
-      autorun: true
+      download: "gs"
+      download_file: "COPYING"
+      download_from: "/{{ download_file }}"
+      download_from_bucket: "ansible-test"
+      download_from_region: "us-west1"
+      download_to: "/tmp/{{ download_file }}"
 
-  tasks:
+    - role: test
+      download: "curl"
+      download_file: "COPYING"
+      download_from: "https://storage.googleapis.com/ansible-test/COPYING"
+      download_to: "/tmp/{{ download_file }}"
 
-    - include_role:
-        name: test
-        tasks_from: run
+    - role: test
+      download: "mvn"
+      download_from: "http://repo1.maven.org/maven2"
+      download_mvn_extension: "jar"
+      download_mvn_group_id: "log4j"
+      download_mvn_artifact_id: "log4j"
+      download_mvn_version: "1.2.9"
+
+## TODO: TEST for S3 and Azure
