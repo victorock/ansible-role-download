@@ -2,6 +2,7 @@
 dependencies: []
 
 galaxy_info:
+  role_name: download
   author: Victor da Costa (@victorock)
   description: Ansible role to download files from Google Storage, Amazon S3, Maven Artifact and URL.
   company: victorock
