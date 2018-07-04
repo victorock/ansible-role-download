@@ -3,32 +3,12 @@
   become: true
   become_user: root
 
-  tasks:
-    - include_role:
-        name: test
-        tasks_from: requirements
-
-    - shell: |
-        ls -latr $(which python)
-        ls -latr $(which python2)
-        ls -latr $(which pip)
-        ls -latr $(which pip2)
-        head $(which ansible-playbook)
-        head $(which pip)
-        head $(which pip2)
-
-- hosts: all
-  become: true
-  become_user: root
-
   vars:
     autorun: true
 
   roles:
     - role: test
       download: "gs"
-      download_user: "{{ lookup('ENV', 'GS_ACCESS_KEY_ID') }}"
-      download_pass: "{{ lookup('ENV', 'GS_SECRET_ACCESS_KEY') }}"
       download_file: "COPYING"
       download_from: "/{{ download_file }}"
       download_from_bucket: "ansible-test"

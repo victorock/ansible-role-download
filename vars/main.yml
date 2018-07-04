@@ -1,32 +1,25 @@
 _download_packages:
   - name:
-      - "python2"
       - "@Development tools"
-      - "python2-pip"
-      - "python2-devel"
+      - "python"
+      - "python-pip"
+      - "python-devel"
       - "git"
     state: latest
     update_cache: yes
 
 _download_pip_packages:
   - name: "pip"
-    executable: "pip2"
     extra_args: "--upgrade"
   - name: "apache-libcloud"
-    executable: "pip2"
     extra_args: "--upgrade"
   - name: "lxml"
-    executable: "pip2"
     extra_args: "--upgrade"
   - name: "boto"
-    executable: "pip2"
     extra_args: "--upgrade"
   - name: "boto2"
-    executable: "pip2"
     extra_args: "--upgrade"
   - name: "boto3"
-    executable: "pip2"
     extra_args: "--upgrade"
   - name: "azure"
-    executable: "pip2"
     extra_args: "--upgrade"

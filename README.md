@@ -200,27 +200,7 @@ None
 Requirements
 ------------
 
-The following are required:
-- apache-libcloud
-- lxml
-- boto3
-- azure
-- git
-
-> You can solve the requirements by your own method, or calling:
-
-```YAML
-- name: "download: Solve requirements"
-  hosts: host
-
-  tasks:
-    - name: "Solve requirements"
-      include_role:
-        name: victorock.download
-        tasks_from: requirements
-```
-
->> NOTE: You need to have a valid repository (see `tests/test.yml` for details).
+None
 
 License
 ------------
