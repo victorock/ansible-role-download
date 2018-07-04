@@ -1,7 +1,6 @@
 ---
 dependencies:
-  - role: geerlingguy.pip
-    pip_state: latest
+  - role: victorock.pip
     pip_install_packages:
       - name: "pip"
         extra_args: "--upgrade"
