@@ -1,11 +1,4 @@
 ---
-- name: "download.curl: Ensure dependencies"
-  become: yes
-  become_user: root
-  yum:
-    name: "curl"
-    state: "latest"
-
 - name: "download.curl: Curl"
   get_url:
     url: "{{ download_from }}"

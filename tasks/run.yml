@@ -1,4 +1,10 @@
 ---
+- import_tasks: deps.yml
+
+# todo: GIT
+# - import_tasks: git.yml
+#   when: "download == 'git'"
+
 - import_tasks: gs.yml
   when: "download == 'gs'"
 

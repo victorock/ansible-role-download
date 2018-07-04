@@ -1,11 +1,4 @@
 ---
-- name: "download.s3: Ensure dependencies"
-  become: yes
-  become_user: root
-  yum:
-    name: "python-boto3"
-    state: "latest"
-
 - name: "download.s3: Amazon S3"
   aws_s3:
     aws_access_key: "{{ download_user | default(omit) }}"

@@ -50,10 +50,11 @@ Follow below different examples and ways to use this role.
     download: "gs"
     download_user: "{{ lookup('ENV', 'GS_ACCESS_KEY_ID') }}"
     download_pass: "{{ lookup('ENV', 'GS_SECRET_ACCESS_KEY') }}"
-    download_from: "/my/folder/path/to/image.qcow2"
+    download_file: "image.qcow2"
+    download_from: "/my/folder/path/to/{{ download_file }}"
     download_from_bucket: "instances-image-store"
     download_from_region: "europe-west1"
-    download_to: "/var/lib/libvirt/images/"
+    download_to: "/var/lib/libvirt/images/{{ download_file }}"
 
   roles:
     - role: victorock.download
@@ -79,10 +80,11 @@ Follow below different examples and ways to use this role.
       vars:
         download_user: "{{ lookup('ENV', 'AWS_ACCESS_KEY_ID') }}"
         download_pass: "{{ lookup('ENV', 'AWS_SECRET_ACCESS_KEY') }}"
-        download_from: "/my/folder/path/to/image.qcow2"
+        download_file: "image.qcow2"
+        download_from: "/my/folder/path/to/{{ download_file }}"
         download_from_bucket: "instances-image-store"
         download_from_region: "eu-west-1"
-        download_to: "/var/lib/libvirt/images/"
+        download_to: "/var/lib/libvirt/images/{{ download_file }}"
 ```
 
 >Playbook: Downloading anonymously from URL
@@ -99,8 +101,10 @@ Follow below different examples and ways to use this role.
 
   vars:
     download: "curl"
-    download_from: "http://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud.qcow2"
-    download_to: "/var/lib/libvirt/images/"
+    download_file: "CentOS-7-x86_64-GenericCloud.qcow2"
+    download_file: "CentOS-7-x86_64-GenericCloud.qcow2"
+    download_from: "http://cloud.centos.org/centos/7/images/{{ download_file }}"
+    download_to: "/var/lib/libvirt/images/{{ download_file }}"
 
   roles:
     - role: victorock.download
@@ -124,8 +128,9 @@ Follow below different examples and ways to use this role.
         tasks_from: curl
       vars:
         download: "curl"
-        download_from: "http://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud.qcow2"
-        download_to: "/var/lib/libvirt/images/"
+        download_file: "CentOS-7-x86_64-GenericCloud.qcow2"
+        download_from: "http://cloud.centos.org/centos/7/images/{{ download_file }}"
+        download_to: "/var/lib/libvirt/images/{{ download_file }}"
 
 ```
 
@@ -190,7 +195,7 @@ Follow below different examples and ways to use this role.
 Dependencies
 ------------
 
-- geerlingguy.repo-epel
+None
 
 
 License

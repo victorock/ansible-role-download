@@ -1,26 +1,20 @@
+---
 services: docker
 
 env:
   - distro: centos7
-    init: /usr/lib/systemd/systemd
-    run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
-
-before_install:
-  # Pull container.
-  - 'docker pull samdoran/${distro}-ansible:latest'
 
 script:
+  # Configure test script so we can run extra tests after playbook is run.
+  - export container_id=$(date +%s)
+  - export test_idempotence=false
 
-  - container_id=$(date +%s)
+  # Download test shim.
+  - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
+  - chmod +x ${PWD}/tests/test.sh
 
-  # Run container in detached state.
-  - docker run --detach --volume="$PWD":/etc/ansible/roles/test:ro --name $container_id $run_opts samdoran/${distro}-ansible:latest $init
-
-  # Ansible syntax check.
-  - 'docker exec --tty $container_id env TERM=xterm ansible-playbook -c local -b -i /etc/ansible/roles/test/tests/inventory /etc/ansible/roles/test/tests/test.yml --syntax-check'
-
-  # Test role.
-  - 'docker exec --tty $container_id env TERM=xterm ansible-playbook -c local -b -i /etc/ansible/roles/test/tests/inventory /etc/ansible/roles/test/tests/test.yml'
+  # Run tests.
+  - ${PWD}/tests/test.sh
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
