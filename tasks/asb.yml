@@ -1,11 +1,4 @@
 ---
-- name: "download.asb: Ensure dependencies"
-  become: yes
-  become_user: root
-  pip:
-    name: "azure"
-    state: "latest"
-
 - name: "download.asb: Azure Storage Blob"
   azure_rm_storageblob:
     resource_group: "{{ download_asb_resource_group }}"

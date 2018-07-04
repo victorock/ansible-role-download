@@ -1,18 +1,9 @@
 ---
-- name: "download.gs: Ensure dependencies"
-  become: yes
-  become_user: root
-  yum:
-    name:
-      - "python-libcloud"
-      - "python-boto3"
-    state: "latest"
-
 - name: "download.gs: Google Storage"
   gc_storage:
     gs_access_key: "{{ download_user | default(omit) }}"
     gs_secret_key: "{{ download_pass | default(omit) }}"
-    region: "{{ download_region | default(omit) }}"
+    region: "{{ download_from_region | default(omit) }}"
     bucket: "{{ download_from_bucket }}"
     object: "{{ download_from }}"
     dest: "{{ download_to }}"

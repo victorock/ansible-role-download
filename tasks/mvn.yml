@@ -1,11 +1,4 @@
 ---
-- name: "download.mvn: Ensure dependencies"
-  become: yes
-  become_user: root
-  yum:
-    name: "python-lxml"
-    state: "latest"
-
 - name: "download.mvn: Maven Artifact"
   maven_artifact:
     group_id:       "{{ download_mvn_group_id }}"

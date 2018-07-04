@@ -1,0 +1,24 @@
+- name: "download.reqs: Ensure state of _download_packages"
+  become: true
+  become_user: root
+  yum:
+    name: "{{ _download_package.name | default(_download_package) }}"
+    state: "{{ _download_package.state  | default(omit) }}"
+    update_cache: "{{ _download_package.update_cache  | default(omit) }}"
+  loop: "{{ _download_packages }}"
+  loop_control:
+    loop_var: _download_package
+
+- name: "download.reqs: Ensure state of _download_pip_packages"
+  become: true
+  become_user: root
+  pip:
+    name: "{{ _download_pip_package.name | default(_download_pip_package) }}"
+    version: "{{ _download_pip_package.version | default(omit) }}"
+    virtualenv: "{{ _download_pip_package.virtualenv | default(omit) }}"
+    state: "{{ _download_pip_package.state | default(omit) }}"
+    executable: "{{ _download_pip_package.executable | default(omit) }}"
+    extra_args: "{{ _download_pip_package.extra_args | default(omit) }}"
+  loop: "{{ _download_pip_packages }}"
+  loop_control:
+    loop_var: _download_pip_package
