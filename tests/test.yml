@@ -1,5 +1,14 @@
 ---
 - hosts: all
+  roles:
+    - role: geerlingguy.repo-epel
+
+  tasks:
+    - include_role:
+        name: test
+        tasks_from: requirements
+
+- hosts: all
 
   vars:
     autorun: true

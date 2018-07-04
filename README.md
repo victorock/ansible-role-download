@@ -195,22 +195,32 @@ Follow below different examples and ways to use this role.
 Dependencies
 ------------
 
-The following dependencies are specified (`meta/main.yml`):
+None
+
+Requirements
+------------
+
+The following are required:
+- apache-libcloud
+- lxml
+- boto3
+- azure
+- git
+
+> You can solve the requirements by your own method, or calling:
 
 ```YAML
-- role: geerlingguy.pip
-  pip_install_packages:
-    - name: "pip"
-      version: "latest"
-    - name: "azure"
-      version: "latest"
-    - name: "apache-libcloud"
-      version: "latest"
-    - name: "lxml"
-      version: "latest"
-    - name: "boto3"
-      version: "latest"
+- name: "download: Solve requirements"
+  hosts: host
+
+  tasks:
+    - name: "Solve requirements"
+      include_role:
+        name: victorock.download
+        tasks_from: requirements
 ```
+
+>> NOTE: You need to have a valid repository (see `tests/test.yml` for details).
 
 License
 ------------
