@@ -2,13 +2,13 @@
 - hosts: all
   become: true
   become_user: root
-  roles:
-    - role: geerlingguy.repo-epel
 
   tasks:
-    - include_role:
-        name: test
-        tasks_from: requirements
+    - shell: |
+        which python
+        which pip
+        head /usr/bin/ansible-playbook
+
 
 - hosts: all
   become: true
