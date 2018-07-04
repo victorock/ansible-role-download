@@ -201,10 +201,15 @@ The following dependencies are specified (`meta/main.yml`):
 - role: geerlingguy.pip
   pip_install_packages:
     - name: "pip"
+      version: "latest"
     - name: "azure"
+      version: "latest"
     - name: "apache-libcloud"
+      version: "latest"
     - name: "lxml"
+      version: "latest"
     - name: "boto3"
+      version: "latest"
 ```
 
 License
