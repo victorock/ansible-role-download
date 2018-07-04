@@ -5,6 +5,7 @@ _download_packages:
       - "python-devel"
       - "git"
     state: latest
+    update_cache: yes
 
 _download_pip_packages:
   - name: "pip"
