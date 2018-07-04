@@ -195,8 +195,17 @@ Follow below different examples and ways to use this role.
 Dependencies
 ------------
 
-None
+The following dependencies are specified (`meta/main.yml`):
 
+```YAML
+- role: geerlingguy.pip
+  pip_install_packages:
+    - name: "pip"
+    - name: "azure"
+    - name: "apache-libcloud"
+    - name: "lxml"
+    - name: "boto3"
+```
 
 License
 ------------

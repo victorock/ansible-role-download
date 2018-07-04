@@ -1,5 +1,12 @@
 ---
-dependencies: []
+dependencies:
+  - role: geerlingguy.pip
+    pip_install_packages:
+      - name: "pip"
+      - name: "azure"
+      - name: "apache-libcloud"
+      - name: "lxml"
+      - name: "boto3"
 
 galaxy_info:
   role_name: "download"
