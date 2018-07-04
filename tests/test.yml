@@ -1,5 +1,7 @@
 ---
 - hosts: all
+  become: true
+  become_user: root
   roles:
     - role: geerlingguy.repo-epel
 
@@ -9,6 +11,8 @@
         tasks_from: requirements
 
 - hosts: all
+  become: true
+  become_user: root
 
   vars:
     autorun: true
