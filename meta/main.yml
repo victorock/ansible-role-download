@@ -1,17 +1,7 @@
 ---
 dependencies:
-  - role: victorock.pip
-    pip_install_packages:
-      - name: "pip"
-        extra_args: "--upgrade"
-      - name: "apache-libcloud"
-        extra_args: "--upgrade"
-      - name: "lxml"
-        extra_args: "--upgrade"
-      - name: "boto3"
-        extra_args: "--upgrade"
-      - name: "azure"
-        extra_args: "--upgrade"
+  - role: geerlingguy.repo-epel
+    when: ansible_os_family == 'RedHat'
 
 galaxy_info:
   role_name: "download"
