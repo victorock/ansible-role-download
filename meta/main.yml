@@ -1,17 +1,18 @@
 ---
 dependencies:
   - role: geerlingguy.pip
+    pip_state: latest
     pip_install_packages:
       - name: "pip"
-        version: "latest"
+        extra_args: "--upgrade"
       - name: "azure"
-        version: "latest"
+        extra_args: "--upgrade"
       - name: "apache-libcloud"
-        version: "latest"
+        extra_args: "--upgrade"
       - name: "lxml"
-        version: "latest"
+        extra_args: "--upgrade"
       - name: "boto3"
-        version: "latest"
+        extra_args: "--upgrade"
 
 galaxy_info:
   role_name: "download"

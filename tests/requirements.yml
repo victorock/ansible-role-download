@@ -1,1 +1,2 @@
-- src: geerlingguy.pip
+- src: https://github.com/victorock/ansible-role-pip
+  name: geerlingguy.pip
