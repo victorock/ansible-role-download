@@ -4,7 +4,7 @@
   package:
     name: "{{ _download_package.name | default(_download_package) }}"
     state: "{{ _download_package.state  | default(omit) }}"
-  loop: "{{ _download_packages[ansible_os_family] }}"
+  loop: "{{ _download_packages }}"
   loop_control:
     loop_var: _download_package
 

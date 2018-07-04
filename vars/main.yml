@@ -1,27 +1,10 @@
 _download_packages:
-  RedHat:
-    - name:
-        - "@Development tools"
-        - "python-pip"
-        - "git"
-      state: latest
-
-  Debian:
-    - name:
-        - "build-essential"
-        - "python-pip"
-        - "python-dev"
-        - "git"
-      state: latest
-
-  Ubuntu:
-    - name:
-        - "build-essential"
-        - "ubuntu-dev-tools"
-        - "python-pip"
-        - "python-dev"
-        - "git"
-      state: latest
+  - name:
+      - "@Development tools"
+      - "python-pip"
+      - "python-devel"
+      - "git"
+    state: latest
 
 _download_pip_packages:
   - name: "pip"
