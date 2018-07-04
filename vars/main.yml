@@ -17,8 +17,6 @@ _download_pip_packages:
     extra_args: "--upgrade"
   - name: "boto"
     extra_args: "--upgrade"
-  - name: "boto2"
-    extra_args: "--upgrade"
   - name: "boto3"
     extra_args: "--upgrade"
   - name: "azure"
