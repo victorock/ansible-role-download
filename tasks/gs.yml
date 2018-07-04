@@ -8,5 +8,4 @@
     object: "{{ download_from }}"
     dest: "{{ download_to }}"
     force: "{{ download_overwrite }}"
-    permission: "{{ (download_user|default(False)) | ternary('private', 'public-read') }}"
     mode: "get"

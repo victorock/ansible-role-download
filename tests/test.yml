@@ -8,14 +8,6 @@
 
   roles:
     - role: test
-      download: "gs"
-      download_file: "COPYING"
-      download_from: "/{{ download_file }}"
-      download_from_bucket: "ansible-test"
-      download_from_region: "us-west1"
-      download_to: "/tmp/{{ download_file }}"
-
-    - role: test
       download: "curl"
       download_file: "COPYING"
       download_from: "https://storage.googleapis.com/ansible-test/COPYING"
@@ -28,5 +20,3 @@
       download_mvn_group_id: "log4j"
       download_mvn_artifact_id: "log4j"
       download_mvn_version: "1.2.9"
-
-## TODO: TEST for S3 and Azure
