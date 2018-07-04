@@ -4,11 +4,18 @@
   become_user: root
 
   tasks:
-    - shell: |
-        which python
-        which pip
-        head /usr/bin/ansible-playbook
+    - include_role:
+        name: test
+        tasks_from: requirements
 
+    - shell: |
+        ls -latr $(which python)
+        ls -latr $(which python2)
+        ls -latr $(which pip)
+        ls -latr $(which pip2)
+        head $(which ansible-playbook)
+        head $(which pip)
+        head $(which pip2)
 
 - hosts: all
   become: true
