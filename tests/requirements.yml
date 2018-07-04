@@ -1,2 +1,3 @@
 - src: https://github.com/victorock/ansible-role-pip
+  scm: git
   name: geerlingguy.pip
