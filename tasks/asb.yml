@@ -1,4 +1,9 @@
 ---
+- name: "download.asb: Ensure directory of download_to"
+  file:
+    path: "{{ download_to | expanduser | dirname }}"
+    state: directory
+
 - name: "download.asb: Azure Storage Blob"
   azure_rm_storageblob:
     resource_group: "{{ download_asb_resource_group }}"

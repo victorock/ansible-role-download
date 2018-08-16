@@ -1,4 +1,9 @@
 ---
+- name: "download.curl: Ensure directory of download_to"
+  file:
+    path: "{{ download_to | expanduser | dirname }}"
+    state: directory
+
 - name: "download.curl: Curl"
   get_url:
     url: "{{ download_from }}"
